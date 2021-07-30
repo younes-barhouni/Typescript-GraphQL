@@ -1,0 +1,17 @@
+{
+  "name": "typescript-graphql",
+  "version": "1.0.0",
+  "description": "GraphQL Typescript Starter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "GraphQL",
+    "Typescript",
+    "Starter",
+    "Boilerplate"
+  ],
+  "author": "Younes barhouni <younesbarhouni@live.com> (https://github.com/younes-barhouni)",
+  "license": "ISC"
+}
