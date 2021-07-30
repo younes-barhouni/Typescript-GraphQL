@@ -2,11 +2,10 @@ import "reflect-metadata";
 import { createConnection } from "typeorm";
 import express from "express";
 import { ApolloServer } from "apollo-server-express";
-import {
-    ApolloServerPluginLandingPageGraphQLPlayground
-  } from "apollo-server-core";
+import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 import { buildSchema } from "type-graphql";
 import { HelloWorldResolver } from "./resolvers/HelloWorld.resolver";
+import { ProgrammingLanguageResolver } from "./resolvers/ProgrammingLanguage.resolver";
 
 (async () => {
   const app = express();
@@ -18,12 +17,13 @@ import { HelloWorldResolver } from "./resolvers/HelloWorld.resolver";
       ApolloServerPluginLandingPageGraphQLPlayground(),
     ],
     schema: await buildSchema({
-      resolvers: [HelloWorldResolver]
+      resolvers: [HelloWorldResolver, ProgrammingLanguageResolver]
     }),
     context: ({ req, res }) => ({ req, res })
   });
 
-  await apolloServer.start()
+  await apolloServer.start();
+
   apolloServer.applyMiddleware({ app, cors: false });
 
   app.listen(4000, () => {
