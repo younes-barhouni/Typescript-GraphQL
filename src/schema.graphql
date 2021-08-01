@@ -1,0 +1,28 @@
+type Query {
+  hello: String!
+  programmingLanguages: [ProgrammingLanguage!]!
+}
+
+type ProgrammingLanguage {
+  id: Int!
+  name: String!
+}
+
+type Mutation {
+  createPLanguage(options: ProgrammingLanguageInput!): ProgrammingLanguage!
+  updatePLanguage(input: ProgrammingLanguageUpdateInput!, id: Int!): Boolean!
+  deletePLanguage(id: Int!): Boolean!
+}
+
+input ProgrammingLanguageInput {
+  name: String!
+}
+
+input ProgrammingLanguageUpdateInput {
+  name: String
+  first_appeared: String!
+  designed_by: String!
+  typing: String!
+  stable_release: String!
+  os: String!
+}
